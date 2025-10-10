@@ -1,0 +1,36 @@
+{
+  "projects": [
+    {
+      "source": [
+        "src/app/shop/**"
+      ],
+      "tags": [
+        "domain:shop",
+        "type:feature"
+      ]
+    },
+    {
+      "source": [
+        "src/app/account/**"
+      ],
+      "tags": [
+        "domain:account",
+        "type:feature"
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "sourceTag": "type:feature",
+      "onlyDependOnTags": [
+        "type:util"
+      ]
+    },
+    {
+      "sourceTag": "domain:shop",
+      "onlyDependOnTags": [
+        "domain:shared"
+      ]
+    }
+  ]
+}

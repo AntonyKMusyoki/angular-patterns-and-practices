@@ -1,0 +1,5 @@
+<section class="cart-summary" aria-live="polite">
+  <div class="row"><span>Subtotal</span><span>{{ cartService.subtotal | async | currency }}</span></div>
+  <div class="row"><span>Tax</span><span>{{ cartService.tax | async | currency }}</span></div>
+  <div class="row total"><span>Total</span><span>{{ cartService.total | async | currency }}</span></div>
+</section>
