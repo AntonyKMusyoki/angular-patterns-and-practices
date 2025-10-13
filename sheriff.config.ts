@@ -11,8 +11,8 @@ export const config: SheriffConfig = {
   modules: {
     'src': ['domain:app'],
     'src/app': ['domain:app'],
-    'src/app/shop': ['domain:shop', 'type:feature'],
-    'src/app/account': ['domain:account', 'type:feature'],
+    'src/app/shop': ['domain:shop'],
+    'src/app/account': ['domain:account'],
   },
   depRules: {
     // root is a virtual module, which contains all files not being part
@@ -21,7 +21,7 @@ export const config: SheriffConfig = {
     'noTag': 'noTag',
 
     // add your dependency rules here
-    'domain:app': ['type:feature', 'domain:app'],
+    'domain:app': ['domain:app', 'domain:shop', 'domain:account'],
     'domain:shop': ['domain:shop'],
     'domain:account': ['domain:account'],
   },
