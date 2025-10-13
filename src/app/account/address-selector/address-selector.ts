@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'bot-address-selector',
+  selector: 'acct-address-selector',
   imports: [],
   templateUrl: './address-selector.html',
   styleUrl: './address-selector.css'
