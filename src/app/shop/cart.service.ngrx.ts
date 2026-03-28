@@ -48,7 +48,7 @@ export const CartStore = signalStore(
   })),
 
   // Persistence to localStorage
-  // withStorageSync('cart'),
+  withStorageSync('cart'),
 );
 
 // Export a Facade (Optional but clean)
