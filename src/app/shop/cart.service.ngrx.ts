@@ -14,7 +14,11 @@ const initialCartState: CartState = {
 };
 
 // Create the Signal Store
-export const CartStore = signalStore(
+//Stop exporting CartStore so consummers will no longer have 
+//access to CartStore or NgRx. 
+// export const CartStore = signalStore(
+//Don't need CartStore to be injectabke when its no longer exported
+const CartStore = signalStore(    
   { providedIn: 'root' },
 
   // State
@@ -51,17 +55,20 @@ export const CartStore = signalStore(
   withStorageSync('cart'),
 );
 
-// Export a Facade (Optional but clean)
-// @Injectable({ providedIn: 'root' })
-// export class CartService {
-//   private readonly _cartStore = inject(CartStore);
+//Export a Facade (Optional but clean)
+//Code exposes a facade wrapped around the CartStore
+//Export CartSerice call that uses CartStore internally
+//i.e this._cartStore
+@Injectable({ providedIn: 'root' })
+export class CartService {
+  private readonly _cartStore = inject(CartStore);
 
-//   readonly cart = this._cartStore.cart;
-//   readonly itemCount = this._cartStore.itemCount;
-//   readonly subtotal = this._cartStore.subtotal;
-//   readonly tax = this._cartStore.tax;
-//   readonly total = this._cartStore.total;
+  readonly cart = this._cartStore.cart;
+  readonly itemCount = this._cartStore.itemCount;
+  readonly subtotal = this._cartStore.subtotal;
+  readonly tax = this._cartStore.tax;
+  readonly total = this._cartStore.total;
 
-//   addToCart = this._cartStore.addToCart;
-//   removeFromCart = this._cartStore.removeFromCart;
-// }
+  addToCart = this._cartStore.addToCart;
+  removeFromCart = this._cartStore.removeFromCart;
+}

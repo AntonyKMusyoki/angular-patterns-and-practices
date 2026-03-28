@@ -2,7 +2,8 @@ import { Component, inject } from '@angular/core';
 import { IProduct } from '../product.model';
 import { ProductDetails } from '../product-details/product-details';
 import { CartSummary } from "../cart-summary/cart-summary";
-import { CartStore } from '../cart.service.ngrx';
+// import { CartStore } from '../cart.service.ngrx';
+import { CartService } from '../cart.service.ngrx';
 
 @Component({
   selector: 'bot-cart',
@@ -11,10 +12,13 @@ import { CartStore } from '../cart.service.ngrx';
   styleUrl: './cart.css'
 })
 export class Cart {
-  private cartStore = inject(CartStore);
-  cartItems = this.cartStore.cart;
+  // private cartStore = inject(CartStore);
+  private cartService = inject(CartService);
+  // cartItems = this.cartStore.cart;
+  cartItems = this.cartService.cart;
 
   removeFromCart(product: IProduct) {
-    this.cartStore.removeFromCart(product.id);
+    // this.cartStore.removeFromCart(product.id);
+    this.cartService.removeFromCart(product.id);
   }
 }

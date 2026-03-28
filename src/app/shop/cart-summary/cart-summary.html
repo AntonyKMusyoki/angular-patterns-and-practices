@@ -1,5 +1,8 @@
 <section class="cart-summary" aria-live="polite">
-  <div class="row"><span>Subtotal</span><span>{{ cartStore.subtotal() | currency }}</span></div>
-  <div class="row"><span>Tax</span><span>{{ cartStore.tax() | currency }}</span></div>
-  <div class="row total"><span>Total</span><span>{{ cartStore.total() | currency }}</span></div>
+  <!-- <div class="row"><span>Subtotal</span><span>{{ cartStore.subtotal() | currency }}</span></div> -->
+  <div class="row"><span>Subtotal</span><span>{{ cartService.subtotal() | currency }}</span></div>
+  <!-- <div class="row"><span>Tax</span><span>{{ cartStore.tax() | currency }}</span></div> -->
+  <div class="row"><span>Tax</span><span>{{ cartService.tax() | currency }}</span></div>
+  <!-- <div class="row total"><span>Total</span><span>{{ cartStore.total() | currency }}</span></div> -->
+  <div class="row total"><span>Total</span><span>{{ cartService.total() | currency }}</span></div>
 </section>
