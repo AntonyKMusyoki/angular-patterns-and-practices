@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import moment from 'moment';
 
 @Component({
   selector: 'bot-site-header',
@@ -8,5 +9,5 @@ import { RouterLink } from '@angular/router';
   styleUrl: './site-header.css'
 })
 export class SiteHeader {
-
+  currentDate = moment().format('LLLL');
 }
