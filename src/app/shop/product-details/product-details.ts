@@ -22,7 +22,7 @@ export class ProductDetails {
   getPriceClasses() {
     //Add long running loop for Angular DevTools Analysis
     //to demo something expensive to execute 
-    for (let i = 0; i < 9000000; i++) Math.sqrt(i);
+    // for (let i = 0; i < 9000000; i++) Math.sqrt(i);
     return { strikethrough: this.product().discount > 0 }
   }
 }
