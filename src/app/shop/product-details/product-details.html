@@ -1,5 +1,14 @@
 <div class="details">
-  <img [src]="getImageUrl(product())" [alt]="product().name" />
+  <!-- <img [src]="getImageUrl(product())" [alt]="product().name" /> -->
+  <!-- Use ngSrc instead of src which will cause iemag to be remdered -->
+  <!-- with optimized image directive. Height and width are required  -->
+  <!-- for optimized images. Set priority=true which sets all images to -->
+  <!-- prioroty. Add input property so parent catalog can tell product-details -->
+  <!-- which images to prioritize -->
+  <!-- <img [src]="getImageUrl(product())" [alt]="product().name" /> -->
+  <!-- <img [ngSrc]="getImageUrl(product())" width="125" height="125" priority="true" [alt]="product().name" /> -->
+  <!-- set Priroroty using input property signal -->
+  <img [ngSrc]="getImageUrl(product())" width="125" height="125" [priority]="priority()" [alt]="product().name" />
   <div>
     <h2>{{ product().name }}</h2>
     <p>{{ product().description }}</p>

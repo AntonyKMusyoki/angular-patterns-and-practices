@@ -1,7 +1,10 @@
 <ul>
-  @for (product of products(); track product.id) {
+  <!-- Grab Items index to use to set image priority -->
+  <!-- @for (product of products(); track product.id) { -->
+  @for (product of products(); track product.id; let i = $index) {
   <li>
-    <bot-product-details [product]="product">
+    <!-- Bind to priority input property and set to true for first 2 images -->
+    <bot-product-details [product]="product" [priority]="i<3">
       <button class="cta" (click)="addToCart(product)">Buy</button>
     </bot-product-details>
   </li>
