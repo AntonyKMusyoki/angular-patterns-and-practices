@@ -1,8 +1,9 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { IProduct } from '../product.model';
 import { CurrencyPipe, NgClass, NgOptimizedImage } from '@angular/common';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'bot-product-details',
   imports: [CurrencyPipe, NgClass, NgOptimizedImage],
   templateUrl: './product-details.html',
@@ -19,6 +20,9 @@ export class ProductDetails {
   }
 
   getPriceClasses() {
+    //Add long running loop for Angular DevTools Analysis
+    //to demo something expensive to execute 
+    for (let i = 0; i < 9000000; i++) Math.sqrt(i);
     return { strikethrough: this.product().discount > 0 }
   }
 }

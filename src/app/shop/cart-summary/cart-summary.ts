@@ -1,8 +1,9 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CartService } from '../cart.service';
 import { CurrencyPipe } from '@angular/common';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'bot-cart-summary',
   imports: [CurrencyPipe],
   templateUrl: './cart-summary.html',

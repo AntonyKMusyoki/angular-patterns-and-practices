@@ -1,10 +1,11 @@
-import { Component, inject, Signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, Signal } from '@angular/core';
 import { ProductDetails } from "../product-details/product-details";
 import { ProductsService } from '../products.service';
 import { IProduct } from '../product.model';
 import { CartService } from '../cart.service';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'bot-catalog',
   imports: [ProductDetails],
   templateUrl: './catalog.html',
